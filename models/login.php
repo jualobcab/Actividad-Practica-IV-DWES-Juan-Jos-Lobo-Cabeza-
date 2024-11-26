@@ -1,1 +1,1 @@
--- comprobAR USUAIO (U P) --> TRUE O FALSE
+-- comprobar USUARIO (U P) --> TRUE O FALSE
