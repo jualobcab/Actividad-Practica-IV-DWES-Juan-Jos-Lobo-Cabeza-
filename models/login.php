@@ -1,1 +1,0 @@
--- comprobar USUARIO (U P) --> TRUE O FALSE

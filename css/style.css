@@ -1,0 +1,27 @@
+.icono {
+    height: 50px;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 1 auto !important;
+    margin: 10px;
+}
+
+/* CSS PARA LAS PORTADAS */
+.cardsTablas {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 50px;
+}
+.cardsTablas .card {
+    max-height: 350px;
+}
