@@ -4,6 +4,7 @@
             <p class='mb-3 mb-md-0 text-body-secondary'>© 2024 Company, Inc</p>
         </div>
     </footer>
+    <!-- Muestra el mensaje y lo borra despues -->
     <?php
         if (isset($_SESSION['mensaje'])){
             echo "<script>alert('".$_SESSION['mensaje']."');</script>";

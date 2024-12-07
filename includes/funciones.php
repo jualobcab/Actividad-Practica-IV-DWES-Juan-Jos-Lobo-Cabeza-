@@ -2,6 +2,9 @@
     include_once "sesiones.php";
     include_once "bd.php";
 
+    ///////////////////////////////////////////////////////////////
+    /////////////    REDIRECCION DEL LOGIN   //////////////////////
+    ///////////////////////////////////////////////////////////////
     function loginRedireccion($user,$password){
         $res = comprobacionUsuario($user,$password);
 
@@ -19,7 +22,9 @@
         }
     }
 
-    // CREACION DE TABLAS
+    /////////////////////////////////////////////////////////////
+    //////////////    CREACION DE TABLAS   //////////////////////
+    /////////////////////////////////////////////////////////////
     function crearTablaProductos(){
         $productos = productosToList();
 
@@ -32,15 +37,16 @@
                     <td>".$p[5]."</td>
                     <td>".$p[6]."</td>";
             if ($_SESSION['rol']=="admin"){
+                // Meto los inputs para la modificacion de los datos y que guarde los datos pero que no se vean por el type hidden 
                 echo "<td style='display:flex; flex_direction:row;gap:5px'>
                         <form method='post' action='productos_actualizar.php'>
                             <input type='hidden' id='id_producto' name='id_producto' value=".$p[0].">
                             <input type='hidden' id='nombre' name='nombre' value=".$p[1].">
-                            <input type='hidden' id='descripcion' name='descripcion' value=".$p[2].">
+                            <input type='hidden' id='descripcion' name='descripcion' value='".$p[2]."'>
                             <input type='hidden' id='precio' name='precio' value=".$p[3].">
                             <input type='hidden' id='magico' name='magico' value=".$p[4].">
-                            <input type='hidden' id='fecha' name='fecha' value=".$p[5].">
-                            <input type='hidden' id='categoria' name='categoria' value=".$p[6].">
+                            <input type='hidden' id='fecha' name='fecha' value='".$p[5]."'>
+                            <input type='hidden' id='categoria' name='categoria' value='".$p[6]."'>
                             <button type='submit' class='btn btn-primary'>Modificar</button>
                         </form>
                         <form method='post' action='productos_borrar.php'>
@@ -61,11 +67,12 @@
                     <th scope='row'>".$c[1]."</th>
                     <td>".$c[2]."</td>";
             if ($_SESSION['rol']=="admin"){
+                // Meto los inputs para la modificacion de los datos y que guarde los datos pero que no se vean por el type hidden 
                 echo "<td style='display:flex; flex_direction:row;gap:5px'>
                         <form method='post' action='categorias_actualizar.php'>
-                            <input type='hidden' id='id_categoria' name='id_categoria' value=".$c[0].">
+                            <input type='hidden' id='id_categoria' name='id_categoria' value='".$c[0]."'>
                             <input type='hidden' id='nombre' name='nombre' value=".$c[1].">
-                            <input type='hidden' id='descripcion' name='descripcion' value=".$c[2].">
+                            <input type='hidden' id='descripcion' name='descripcion' value='".$c[2]."'>
                             <button type='submit' class='btn btn-primary'>Modificar</button>
                         </form>
                         <form method='post' action='categorias_borrar.php'>
@@ -78,6 +85,7 @@
         }
     }
 
+    // FUNCION AUXILIAR PARA CREAR LAS OPTIONS DEL SELECT DE CATEGORIAS
     function crearSelectsCategorias($nombreCategoria = null){
         $categorias = categoriasToList();
 
@@ -91,7 +99,9 @@
     }
 
 
-    // Gestion de resolucion de Formularios
+    ////////////////////////////////////////////////////////////////////////////
+    /////////////////    REDIRECCION DE LOS FORMULARIOS   //////////////////////
+    ////////////////////////////////////////////////////////////////////////////
     function insertCategoriaRedireccion($nombre, $descripcion){
         $respuesta = anadirCategoria($nombre, $descripcion);
 
@@ -126,7 +136,9 @@
         } 
     }
 
-    // Borrado de instancias
+    ////////////////////////////////////////////////////////////////////////
+    ////////////////    REDIRECCION DE LOS BORRADOS   //////////////////////
+    ////////////////////////////////////////////////////////////////////////
     function redireccionBorrarProducto($id){
         $respuesta = borrarProducto($id);
 
@@ -155,7 +167,9 @@
         }
     }
 
-    // FUNCIONES DE REDIRIGIR MODIFICACION DE INSTANCIAS
+    //////////////////////////////////////////////////////////////////////////////
+    ///////////////    REDIRECCIONES DE LOS MODIFICADORES   //////////////////////
+    //////////////////////////////////////////////////////////////////////////////
     function modificarProductoRedireccion($id,$nombre,$descripcion,$precio,$nombreCategoria,$magico){
         $respuesta = modificarProducto($id,$nombre,$descripcion,$precio,$nombreCategoria,$magico);
 

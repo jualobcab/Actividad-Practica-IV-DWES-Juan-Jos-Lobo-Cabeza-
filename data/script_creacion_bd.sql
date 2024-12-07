@@ -29,8 +29,8 @@ CREATE TABLE Productos (
 CREATE USER IF NOT EXISTS gamemaster@'localhost' IDENTIFIED BY '1111';
 GRANT SELECT, INSERT, UPDATE, DELETE on tienda.* TO gamemaster@'localhost';
 
-INSERT INTO Usuarios(usuario,contrasenya,rol) VALUES ('gamemaster','1111','admin');
-INSERT INTO Usuarios(usuario,contrasenya,rol) VALUES ('jugador1','1234','usuario');
+INSERT INTO Usuarios(usuario,contrasenya,rol) VALUES ('gamemaster',md5('1111'),'admin');
+INSERT INTO Usuarios(usuario,contrasenya,rol) VALUES ('jugador1',md5('1234'),'usuario');
 
 -- Inserts categorias
 INSERT INTO Categorias(nombre,descripcion) VALUES ('Arma','Herramienta diseñada para atacar o defender en combate');

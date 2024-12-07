@@ -46,7 +46,7 @@
             </ul>
             <div class='col-md-3 text-end'>
                 <form action='logout.php'>
-                    <button type='submit' class='btn btn-primary'>Cerrar Sesión</button>
+                    <button type='submit' class='btn btn-primary btnCerrarSesion'>Cerrar Sesión</button>
                 </form>
             </div>
     <?php

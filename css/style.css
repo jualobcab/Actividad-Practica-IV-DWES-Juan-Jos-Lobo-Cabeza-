@@ -1,6 +1,7 @@
 .icono {
     height: 50px;
 }
+
 body {
     display: flex;
     flex-direction: column;
